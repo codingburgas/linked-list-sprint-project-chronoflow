@@ -3,11 +3,12 @@
 #include <iostream>
 
 void addEvent(Node*& head) {
-    
     std::string title, theme, location;
     int month, year;
 
     std::cout << std::endl;
+
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     std::cout << "Enter title: ";
     std::getline(std::cin, title);
@@ -20,9 +21,9 @@ void addEvent(Node*& head) {
 
     std::cout << "Enter month: ";
     while (!(std::cin >> month) || month < 1 || month > 12) {
-       std::cout << "Invalid input. Please enter a valid month number: ";
-       std::cin.clear();
-       std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+        std::cout << "Invalid input. Please enter a valid month number: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
     std::cout << "Enter year: ";
@@ -49,7 +50,8 @@ void addEvent(Node*& head) {
 }
 
 void displayAllEvents(Node* head) {
-   
+    std::cout << std::endl;
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     if (head == nullptr) {
         std::cout << "No events to display.\n";
         return;
@@ -78,8 +80,7 @@ void searchEvents(Node* head) {
 	bool found = false;
 
     while (current != nullptr) {
-        if (current->event.title.find(searchTerm) != std::string::npos ||
-            current->event.theme.find(searchTerm) != std::string::npos) {
+        if (current->event.title.find(searchTerm) != std::string::npos || current->event.theme.find(searchTerm) != std::string::npos) {
 			std::cout << "Title: " << current->event.title << "\n";
 			std::cout << "Theme: " << current->event.theme << "\n";
 			std::cout << "Location: " << current->event.location << "\n";
@@ -93,4 +94,39 @@ void searchEvents(Node* head) {
     if (!found) {
 		std::cout << "No events found matching the search term.\n";
 	}
+}
+void deleteEvent(Node*& head) {
+    std::cout << std::endl;
+    if (head == nullptr) {
+		std::cout << "No events to delete.\n";
+		return;
+	}
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    std::string title;
+    std::cout << "Enter the title of the event to delete: ";
+    std::getline(std::cin, title);
+
+    Node* current = head;
+    Node* previous = nullptr;
+
+    while (current != nullptr && current->event.title != title) {
+        previous = current;
+        current = current->next;
+    }
+
+    if (current == nullptr) {
+        std::cout << "Event not found.\n";
+        return;
+    }
+
+
+    if (previous == nullptr) {
+        head = current->next;
+    }
+    else {
+        previous->next = current->next;
+    }
+
+    delete current;
+    std::cout << "Event deleted successfully.\n";
 }

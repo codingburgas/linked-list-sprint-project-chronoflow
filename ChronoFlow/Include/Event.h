@@ -4,6 +4,7 @@
 #include <string>
 
 struct Event {
+    Event() = default;
     std::string title;
     std::string theme;
     std::string location;

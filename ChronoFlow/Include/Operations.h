@@ -6,3 +6,4 @@
 void addEvent(Node*& head);
 void displayAllEvents(Node* head);
 void searchEvents(Node* head);
+void deleteEvent(Node*& head);

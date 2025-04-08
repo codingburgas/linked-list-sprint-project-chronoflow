@@ -30,6 +30,7 @@ int main() {
             searchEvents(head);
             break;
         case 4:
+            deleteEvent(head);
             break;
         case 5: {
             int sortChoice;
