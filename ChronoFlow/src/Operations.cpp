@@ -10,19 +10,27 @@ void addEvent(Node*& head) {
     std::cout << std::endl;
 
     std::cout << "Enter title: ";
-    std::cin >> title;
+    std::getline(std::cin, title);
 
     std::cout << "Enter theme: ";
-    std::cin >> theme;
+    std::getline(std::cin, theme);
 
     std::cout << "Enter location: ";
-    std::cin >> location;
+    std::getline(std::cin, location);
 
     std::cout << "Enter month: ";
-    std::cin >> month;
+    while (!(std::cin >> month) || month < 1 || month > 12) {
+       std::cout << "Invalid input. Please enter a valid month number: ";
+       std::cin.clear();
+       std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
 
     std::cout << "Enter year: ";
-    std::cin >> year;
+    while (!(std::cin >> year) || year < 0) {
+        std::cout << "Invalid input. Please enter a valid positive year: ";
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
 
     Event newEvent(title, theme, location, month, year);
     Node* newNode = new Node(newEvent);
