@@ -34,7 +34,9 @@ int main() {
             break;
         case 5: {
             bool sortChoice;
-            std::cout << std::endl << "Sort by Date:\n\n0. Descending \n1. Ascendingn ";
+            std::cout << std::endl << "Sort by date: " << std::endl;
+            std::cout << std::endl << "0. Descending" << std::endl << "1. Ascending";
+            std::cout << std::endl << std::endl << "Enter your choice: ";
             std::cin >> sortChoice;
             sortEvents(head, sortChoice == 1);
             break;
@@ -44,7 +46,7 @@ int main() {
             std::cout << "Exiting...\n";
             break;
         default:
-            std::cout << "Invalid choice. Try again.\n";
+            std::cout << std::endl << "Invalid choice. Try again.\n";
             break;
         }
     }
