@@ -19,11 +19,11 @@ CronoFlow is a C++ application designed for registering and managing historical 
 ## 📝 Documents
 <h4>Documents</h4>
 <ul>
-<li> <a href="../linked-list-sprint-project-chronoflow/Documentary/ChronoFlow.docx">Documentation</a></li>
+<li> <a href="../linked-list-sprint-project-chronoflow/Documents/ChronoFlow.docx">Documentation</a></li>
 </ul> 
 <h4>Presenting</h4>
 <ul>
-<li><a href="../linked-list-sprint-project-chronoflow/Documentary/ChronoFlow.pptx">Presentation</a></li>
+<li><a href="../linked-list-sprint-project-chronoflow/Documents/ChronoFlow.pptx">Presentation</a></li>
 </ul>
 
  
