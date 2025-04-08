@@ -7,8 +7,8 @@
 | **Name** | **Role** | **Grade** |
 | :---:   | :---: | :---: |
 | Daniel Plamenov Hristov | *Scrum trainer* | 🟥 10B |
-| Alexandur Stoyanov Ivanov | *Front-end developer*  | 🟥 10B |
-| Dimitur Petrov Dimitrakov | *Back-end developer*  | 🟨 10A |
+| Alexandar Stoyanov Ivanov | *Front-end developer*  | 🟥 10B |
+| Dimitar Petrov Dimitrakov | *Back-end developer*  | 🟨 10A |
 | Konstantin Krasimirov Nachev |  *QA*  | 🟨 10A |
 
  
@@ -17,7 +17,14 @@ CronoFlow is a C++ application designed for registering and managing historical 
 
  
 ## 📝 Documents
-
+<h4>Documents</h4>
+<ul>
+<li> <a href="../linked-list-sprint-project-chronoflow/Documentary/ChronoFlow.docx">Documentation</a></li>
+</ul> 
+<h4>Presenting</h4>
+<ul>
+<li><a href="../linked-list-sprint-project-chronoflow/Documentary/ChronoFlow.pptx">Presentation</a></li>
+</ul>
 
  
   ## ⚒️ Used technologies

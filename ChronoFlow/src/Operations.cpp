@@ -67,3 +67,30 @@ void displayAllEvents(Node* head) {
         current = current->next;
     }
 }
+
+void searchEvents(Node* head) {
+	std::string searchTerm;
+	std::cout << "Enter title or theme to search: ";
+	std::cin.ignore();
+	std::getline(std::cin, searchTerm);
+
+	Node* current = head;
+	bool found = false;
+
+    while (current != nullptr) {
+        if (current->event.title.find(searchTerm) != std::string::npos ||
+            current->event.theme.find(searchTerm) != std::string::npos) {
+			std::cout << "Title: " << current->event.title << "\n";
+			std::cout << "Theme: " << current->event.theme << "\n";
+			std::cout << "Location: " << current->event.location << "\n";
+			std::cout << "Date: " << current->event.month << "/" << current->event.year << "\n";
+			std::cout << "---------------------------\n";
+			found = true;
+		}
+		current = current->next;
+	}
+
+    if (!found) {
+		std::cout << "No events found matching the search term.\n";
+	}
+}

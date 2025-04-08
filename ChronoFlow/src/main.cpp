@@ -27,6 +27,7 @@ int main() {
             displayAllEvents(head);
             break;
         case 3:
+            searchEvents(head);
             break;
         case 4:
             break;
