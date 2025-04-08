@@ -1,37 +1,47 @@
 #include <iostream>
 #include "../Include/MainMenu.h"
+#include "../Include/Operations.h"
+#include "../Include/Event.h"
 
-int main()
-{
-	
-    int choice;
+
+int main() {
+
+    Node* head = nullptr;
 
     bool running = true;
 
-    displayMenu();
+    while (running) {
+        
+        displayMenu();
 
-	std::cin >> choice;
+        int choice;
 
+        std::cout << "Enter choice: ";
+        std::cin >> choice;
 
-    while (running)
-    {
         switch (choice) {
         case 1:
+            addEvent(head);
             break;
         case 2:
+            displayAllEvents(head);
             break;
         case 3:
             break;
         case 4:
             break;
-        case 5:
+        case 5: {
+            int sortChoice;
+            std::cout << "Sort by:\n1. Ascending\n2. Descending\n> ";
+            std::cin >> sortChoice;
             break;
+        }
         case 6:
-            std::cout << "Exiting...\n";
             running = false;
+            std::cout << "Exiting...\n";
             break;
         default:
-            std::cout << "Invalid choice.\n";
+            std::cout << "Invalid choice. Try again.\n";
         }
     }
 }

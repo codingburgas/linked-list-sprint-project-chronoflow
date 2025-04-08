@@ -129,10 +129,13 @@
   <ItemGroup>
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\MainMenu.cpp" />
+    <ClCompile Include="src\Operations.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Event.h" />
+    <ClInclude Include="Include\Event.h" />
     <ClInclude Include="Include\MainMenu.h" />
+    <ClInclude Include="Include\Node.h" />
+    <ClInclude Include="Include\Operations.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include=".gitattributes" />
