@@ -21,14 +21,15 @@ void addEvent(Node*& head) {
 
     std::cout << "Enter month: ";
     while (!(std::cin >> month) || month < 1 || month > 12) {
-        std::cout << "Invalid input. Please enter a valid month number: ";
+        std::cout << std::endl << "Invalid input. Please enter a valid month number: ";
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
 
+
     std::cout << "Enter year: ";
     while (!(std::cin >> year) || year < 0) {
-        std::cout << "Invalid input. Please enter a valid positive year: ";
+        std::cout << std::endl <<"Invalid input. Please enter a valid positive year: ";
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     }
@@ -46,7 +47,7 @@ void addEvent(Node*& head) {
         current->next = newNode;
     }
 
-    std::cout << "Event added successfully.\n";
+    std::cout << std::endl << "Event added successfully.\n";
 }
 
 void displayAllEvents(Node* head) {
@@ -72,7 +73,7 @@ void displayAllEvents(Node* head) {
 
 void searchEvents(Node* head) {
 	std::string searchTerm;
-	std::cout << "Enter title or theme to search: ";
+	std::cout << std::endl << "Enter title or theme to search: ";
 	std::cin.ignore();
 	std::getline(std::cin, searchTerm);
 
@@ -81,7 +82,7 @@ void searchEvents(Node* head) {
 
     while (current != nullptr) {
         if (current->event.title.find(searchTerm) != std::string::npos || current->event.theme.find(searchTerm) != std::string::npos) {
-			std::cout << "Title: " << current->event.title << "\n";
+			std::cout << std::endl << "Title: " << current->event.title << "\n";
 			std::cout << "Theme: " << current->event.theme << "\n";
 			std::cout << "Location: " << current->event.location << "\n";
 			std::cout << "Date: " << current->event.month << "/" << current->event.year << "\n";
@@ -92,7 +93,7 @@ void searchEvents(Node* head) {
 	}
 
     if (!found) {
-		std::cout << "No events found matching the search term.\n";
+        std::cout << std::endl << "No events found matching the search term.\n";
 	}
 }
 void deleteEvent(Node*& head) {
@@ -115,7 +116,7 @@ void deleteEvent(Node*& head) {
     }
 
     if (current == nullptr) {
-        std::cout << "Event not found.\n";
+        std::cout << std::endl << "Event not found.\n";
         return;
     }
 
@@ -128,5 +129,52 @@ void deleteEvent(Node*& head) {
     }
 
     delete current;
-    std::cout << "Event deleted successfully.\n";
+    std::cout << std::endl << "Event deleted successfully.\n";
+}
+
+void swapEvents(Event& a, Event& b) {
+    Event temp = a;
+    a = b;
+    b = temp;
+}
+
+void sortEvents(Node* head, bool ascending) {
+    if (head == nullptr || head->next == nullptr) {
+        return; 
+    }
+
+    bool swapped;
+    Node* current;
+    Node* last = nullptr;
+
+
+    do {
+        swapped = false;
+        current = head;
+
+        
+        while (current->next != last) {
+            if (ascending) {
+                
+                if ((current->event.year > current->next->event.year) ||
+                    (current->event.year == current->next->event.year && current->event.month > current->next->event.month)) {
+                    swapEvents(current->event, current->next->event); 
+                    swapped = true;
+                    std::cout << std::endl << "Successfully sorted by ascending " << std::endl;
+                }
+            }
+            else {
+                
+                if ((current->event.year < current->next->event.year) ||
+                    (current->event.year == current->next->event.year && current->event.month < current->next->event.month)) {
+                    swapEvents(current->event, current->next->event); 
+                    swapped = true;
+                    std::cout << std::endl << "Successfully sorted by descending " << std::endl;
+
+                }
+            }
+            current = current->next;  
+        }
+        last = current;  
+    } while (swapped);  
 }

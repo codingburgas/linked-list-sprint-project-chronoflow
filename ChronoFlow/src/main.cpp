@@ -33,9 +33,10 @@ int main() {
             deleteEvent(head);
             break;
         case 5: {
-            int sortChoice;
-            std::cout << "Sort by:\n1. Ascending\n2. Descending\n> ";
+            bool sortChoice;
+            std::cout << std::endl << "Sort by Date:\n0. Descending \n1. Ascendingn ";
             std::cin >> sortChoice;
+            sortEvents(head, sortChoice == 1);
             break;
         }
         case 6:
@@ -44,6 +45,7 @@ int main() {
             break;
         default:
             std::cout << "Invalid choice. Try again.\n";
+            break;
         }
     }
 }
