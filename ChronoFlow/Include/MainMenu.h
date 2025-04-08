@@ -1,3 +1,6 @@
 #pragma once
+#include "../Include/Node.h"
 
-void displayMenu();
+
+void displayMenu(Node* head);
+int countEvents(Node* head);

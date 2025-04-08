@@ -12,7 +12,7 @@ int main() {
 
     while (running) {
         
-        displayMenu();
+        displayMenu(head);
 
         int choice;
 
@@ -34,7 +34,7 @@ int main() {
             break;
         case 5: {
             bool sortChoice;
-            std::cout << std::endl << "Sort by Date:\n0. Descending \n1. Ascendingn ";
+            std::cout << std::endl << "Sort by Date:\n\n0. Descending \n1. Ascendingn ";
             std::cin >> sortChoice;
             sortEvents(head, sortChoice == 1);
             break;

@@ -178,3 +178,4 @@ void sortEvents(Node* head, bool ascending) {
         last = current;  
     } while (swapped);  
 }
+
